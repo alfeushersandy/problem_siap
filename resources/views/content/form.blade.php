@@ -1,8 +1,8 @@
 <!-- Modal -->
 <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="modal-form-Label" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <form class="form-input" action="{{ route('siap.create') }}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form id="form-problem" action="{{ route('siap.create') }}" method="POST" enctype="multipart/form-data">
+           @csrf
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="modal-form-Label">Modal title</h5>

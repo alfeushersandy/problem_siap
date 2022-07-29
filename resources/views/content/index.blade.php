@@ -38,12 +38,20 @@
 @push('scripts')
     <script>
         $(document).ready(function(){
-            $('.form-input').on('submit', function(e){
+            $.ajaxSetup({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+            });
+            $('#form-problem').on('submit', function(e){
                 e.preventDefault();
                 $.ajax({
-                    type: "post",
+                    type: "POST",
                     url: "siap/create",
-                    data: $('.form-input').serialize(),
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
                     success: function(response){
                         console.log(response)
                         $('#modal-form').modal('hide')

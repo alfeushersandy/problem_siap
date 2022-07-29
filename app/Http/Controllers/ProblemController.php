@@ -13,22 +13,22 @@ class ProblemController extends Controller
 
     public function create(Request $request){
         $this->validate($request, [
-            'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             'tanggal' => 'required',
             'kategori' => 'required'
         ]);
 
         //upload image
-        $gambar = $request->file('gambar');
-        $gambar->storeAs('public/SIAP', $gambar->hashName());
+        $image = $request->file('image');
+        $image->storeAs('public/SIAP', $image->hashName());
 
         $siap = Siap::create([
             'tanggal' => $request->tanggal,
-            'gambar' => $gambar->hashName(),
+            'gambar' => $image->hashName(),
             'narasi' => $request->narasi,
             'kategori' => $request->kategori
         ]);
 
-       return response()->json($request);
+       return response()->json($siap);
     }
 }

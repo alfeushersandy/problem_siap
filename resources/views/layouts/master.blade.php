@@ -8,6 +8,7 @@
       content="HTML, CSS, JavaScript, Bootstrap, Chart JS"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="Rachma | @rachmadzii" />
 
     <title>SIAP X AHG Dashboard</title>
@@ -60,8 +61,8 @@
     ></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="{{ asset('assets/js/donut_chart.js') }}"></script>
-    <script src="{{ asset('assets/js/line_chart.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/donut_chart.js') }}"></script>
+    <script src="{{ asset('assets/js/line_chart.js') }}"></script> --}}
 
     <script>
       $(document).ready(function () {
